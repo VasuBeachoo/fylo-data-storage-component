@@ -40,12 +40,12 @@ body {
   @include flex();
   background: color(very-dark-blue) $desktopBg no-repeat;
   background-size: 1300px;
-  background-position: 100% 100%;
+  background-position: 100% 135%;
   min-height: 100vh;
 }
 
 .component {
-  @include flex();
+  @include flex(row, center, flex-end);
   font-family: $componentFont;
 }
 
@@ -54,7 +54,7 @@ body {
   background-color: color(dark-blue);
   width: 220px;
   border-radius: 8px 80px 8px 8px;
-  padding: 35px;
+  padding: 40px 35px;
   margin-right: 30px;
 }
 
@@ -91,12 +91,101 @@ body {
 .text-section {
   @include flex(column, flex-start, flex-start);
   background-color: color(dark-blue);
+  width: 500px;
+  height: 75px;
+  border-radius: 8px;
+  padding: 40px 40px 30px;
+}
+
+.paragraph-text {
+  color: color(pale-blue);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  margin: 0 0 10px;
+}
+
+.light-blue-text {
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.data-used {
+  font-weight: 700;
+}
+
+.storage-bar {
+  background-color: color(very-dark-blue);
+  width: 100%;
+  min-height: 20px;
+  border-radius: 10px;
+  margin-top: 5px;
+}
+
+.progress-bar {
+  background: linear-gradient(
+    90deg,
+    hsl(6, 100%, 80%),
+    hsl(335, 100%, 65%) 80%
+  );
+  border-radius: 10px;
+  width: 385px;
+  height: 20px;
+}
+
+.progress-circle {
+  background-color: color(pale-blue);
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  transform: translate(370px, -20px);
 }
 
 .labels-container {
   @include flex(row, flex-start);
+  width: 100%;
+}
+
+.label-text {
+  color: color(pale-blue);
+  font-size: 13px;
+  font-weight: 700;
+  margin: 9px 0 0 0;
+}
+
+.right-label {
+  margin-left: auto;
 }
 
 .data-left-bubble {
-  @include flex();
+  @include flex(row, center, center);
+  position: absolute;
+  background-color: hsl(0, 100%, 100%);
+  border-radius: 8px 8px 0 8px;
+  padding: 12px 18px;
+  transform: translate(355px, -70px);
+}
+
+.data-left-text {
+  color: color(gray-blue);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.data-left-number {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0 7px 0 0;
+}
+
+.data-left-triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-width: 0 30px 30px 0;
+  border-color: transparent hsl(0, 100%, 100%) transparent transparent;
+  border-style: solid;
+  transform: translate(465px, -15px);
 }
