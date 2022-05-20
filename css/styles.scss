@@ -74,6 +74,12 @@ body {
   width: 38px;
   height: 40px;
   margin-right: 12px;
+  transition: 0.25s;
+
+  &:hover {
+    cursor: pointer;
+    filter: invert(1);
+  }
 }
 
 .document-icon {
