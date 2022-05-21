@@ -7,10 +7,15 @@ $colors: (
   very-dark-blue: hsl(229, 57%, 11%),
 );
 
-$componentFont: "Raleway", sans-serif;
+$component-font: "Raleway", sans-serif;
 
-$desktopBg: url("../images/bg-desktop.png");
-$mobileBg: url("../images/bg-mobile.png");
+$desktop-bg: url("../images/bg-desktop.png");
+$mobile-bg: url("../images/bg-mobile.png");
+
+$mobile-width: 950px;
+
+$section-box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+  rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 
 ///////////////////////////////////////
 // MIXINS //////////////////////////
@@ -20,6 +25,12 @@ $mobileBg: url("../images/bg-mobile.png");
   flex-direction: $direction;
   justify-content: $justify;
   align-items: $align;
+}
+
+@mixin mobile() {
+  @media (max-width: 950px) {
+    @content;
+  }
 }
 
 ///////////////////////////////////////
@@ -38,15 +49,15 @@ body {
 
 .component-container {
   @include flex();
-  background: color(very-dark-blue) $desktopBg no-repeat;
+  background: color(very-dark-blue) $desktop-bg no-repeat;
   background-size: 1300px;
-  background-position: 100% 135%;
+  background-position: 100% 140%;
   min-height: 100vh;
 }
 
 .component {
   @include flex(row, center, flex-end);
-  font-family: $componentFont;
+  font-family: $component-font;
 }
 
 .img-section {
@@ -54,6 +65,7 @@ body {
   background-color: color(dark-blue);
   width: 220px;
   border-radius: 8px 80px 8px 8px;
+  box-shadow: $section-box-shadow;
   padding: 40px 35px;
   margin-right: 30px;
 }
@@ -100,6 +112,7 @@ body {
   width: 500px;
   height: 75px;
   border-radius: 8px;
+  box-shadow: $section-box-shadow;
   padding: 40px 40px 30px;
 }
 
@@ -194,4 +207,74 @@ body {
   border-color: transparent hsl(0, 100%, 100%) transparent transparent;
   border-style: solid;
   transform: translate(465px, -15px);
+}
+
+@include mobile() {
+  .component-container {
+    background: color(very-dark-blue) $mobile-bg;
+    background-size: cover;
+  }
+
+  .component {
+    @include flex(column, flex-start, center);
+    margin: 50px 0 80px;
+  }
+
+  .img-section {
+    width: 320px;
+    margin: 0 0 20px 0;
+  }
+
+  .logo {
+    width: 130px;
+  }
+
+  .icon-border {
+    width: 45px;
+    height: 47px;
+    margin-right: 20px;
+  }
+
+  .document-icon {
+    width: 20px;
+  }
+
+  .folder-icon {
+    width: 23px;
+  }
+
+  .upload-icon {
+    width: 25px;
+  }
+
+  .text-section {
+    width: 320px;
+  }
+
+  .paragraph-text {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .storage-bar {
+    width: 320px;
+  }
+
+  .progress-bar {
+    width: 260px;
+  }
+
+  .progress-circle {
+    transform: translate(245px, -20px);
+  }
+
+  .data-left-bubble {
+    border-radius: 8px;
+    transform: translate(85px, 75px);
+  }
+
+  .data-left-triangle {
+    transform: translate(0, 0);
+    display: none;
+  }
 }
